@@ -49,7 +49,7 @@ def show_melon(melon_id):
     """
 
     melon = melons.get_by_id(melon_id)
-    print(melon)
+    # print(melon)
     return render_template("melon_details.html",
                            display_melon=melon)
 
@@ -75,6 +75,9 @@ def show_shopping_cart():
     #
     # Make sure your function can also handle the case wherein no cart has
     # been added to the session
+    cart = [melons.get_by_id(melon_id) for melon_id in session["cart"]]
+
+
 
     return render_template("cart.html")
 
