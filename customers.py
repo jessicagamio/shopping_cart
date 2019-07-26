@@ -43,9 +43,12 @@ def read_customers_from_file(filepath):
     return customers
 
 
-def get_by_email(email, filepath):
+def get_by_email(email):
     """Look up customer info based on `email`."""
 
-    customers = read_customers_from_file(filepath)
+    customers = read_customers_from_file("customers.txt")
 
-    return customers[email]
+    if email in customers:
+        return customers[email]
+    else:
+        return "No customer with that email" 
